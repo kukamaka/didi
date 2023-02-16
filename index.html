@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Click to change names</title>
+    <style>
+      #name {
+        font-size: 32px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        cursor: pointer;
+      }
+
+      .spin {
+        animation-name: spin;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <p id="name" class="spin">Данчооо</p>
+
+    <script>
+      const nameElement = document.getElementById("name");
+      let hue = 0;
+
+      setInterval(() => {
+        nameElement.style.color = `hsl(${hue}, 100%, 50%)`;
+        hue = (hue + 1) % 360;
+      }, 10);
+
+      nameElement.addEventListener("click", () => {
+        if (nameElement.textContent === "Данчооо") {
+          nameElement.textContent = "Дидка";
+          nameElement.classList.remove("spin");
+          void nameElement.offsetWidth;
+          nameElement.classList.add("spin");
+        } else if (nameElement.textContent === "Дидка") {
+          nameElement.textContent = "Ани";
+          nameElement.classList.remove("spin");
+          void nameElement.offsetWidth;
+          nameElement.classList.add("spin");
+        } else if (nameElement.textContent === "Ани") {
+          nameElement.textContent = "Невена";
+          nameElement.classList.remove("spin");
+          void nameElement.offsetWidth;
+          nameElement.classList.add("spin");
+        } else if (nameElement.textContent === "Невена") {
+          location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>
