@@ -54,9 +54,14 @@
           nameElement.classList.remove("spin");
           void nameElement.offsetWidth;
           nameElement.classList.add("spin");
-        } else if (nameElement.textContent === "Невена") {
+        } else if  (nameElement.textContent === "Невена") {
+          nameElement.textContent = "Хати";
+          nameElement.classList.remove("spin");
+          void nameElement.offsetWidth;
+          nameElement.classList.add("spin");
+        } else if (nameElement.textContent === "Хати") {
           location.reload();
-        }
+        } 
       });
     </script>
   </body>
